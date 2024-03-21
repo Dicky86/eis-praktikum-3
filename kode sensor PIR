@@ -1,0 +1,24 @@
+int PIR = 2;
+int statusPin = 0;
+
+void setup()
+{
+    serial.begin(9600);
+    pinMode(PIR, INPUT);
+}
+
+void loop()
+{
+    delay (400);
+    statusPin = digitalread(PIR);
+    if(statusPin == HIGH)
+    {
+       Serial.print("gerakan Terdeteksi");
+       Serial.print('\n');
+    }
+    else
+    {
+        Serial.print("Tidak Ada gerakan");
+        serial.print('\n');
+    }
+}
